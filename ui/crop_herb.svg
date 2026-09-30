@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <circle cx="48" cy="48" r="45" fill="#fff6dc" stroke="#e7d3ad" stroke-width="3"/>
+
+  <path d="M48 86 Q46 60 50 22" stroke="#3f7a2a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path transform="translate(48 76) rotate(-60) scale(1.2)" d="M0 0 Q-9 -10 0 -24 Q9 -10 0 0Z" fill="#7cc04f" stroke="#3f7a2a" stroke-width="2" stroke-linejoin="round"/><path transform="translate(48 76) rotate(60) scale(1.2)" d="M0 0 Q-9 -10 0 -24 Q9 -10 0 0Z" fill="#7cc04f" stroke="#3f7a2a" stroke-width="2" stroke-linejoin="round"/>
+  <path transform="translate(48 58) rotate(-55) scale(1.1)" d="M0 0 Q-9 -10 0 -24 Q9 -10 0 0Z" fill="#6fae52" stroke="#3f7a2a" stroke-width="2" stroke-linejoin="round"/><path transform="translate(48 58) rotate(55) scale(1.1)" d="M0 0 Q-9 -10 0 -24 Q9 -10 0 0Z" fill="#6fae52" stroke="#3f7a2a" stroke-width="2" stroke-linejoin="round"/>
+  <path transform="translate(49 42) rotate(-45) scale(0.95)" d="M0 0 Q-9 -10 0 -24 Q9 -10 0 0Z" fill="#8fd05e" stroke="#3f7a2a" stroke-width="2" stroke-linejoin="round"/><path transform="translate(49 42) rotate(45) scale(0.95)" d="M0 0 Q-9 -10 0 -24 Q9 -10 0 0Z" fill="#8fd05e" stroke="#3f7a2a" stroke-width="2" stroke-linejoin="round"/>
+  <path transform="translate(50 28) rotate(0) scale(0.8)" d="M0 0 Q-9 -10 0 -24 Q9 -10 0 0Z" fill="#8fd05e" stroke="#3f7a2a" stroke-width="2" stroke-linejoin="round"/>
+</svg>

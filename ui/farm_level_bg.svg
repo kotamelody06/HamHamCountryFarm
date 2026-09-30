@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1392" height="430" viewBox="0 0 1392 430">
+  <!-- 農業レベル枠の背景：文字が読めるよう淡い色で、景色は下側と右側に寄せています -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e3f1f7"/>
+      <stop offset="0.55" stop-color="#fbf5e4"/>
+      <stop offset="1" stop-color="#f3e8c8"/>
+    </linearGradient>
+    <clipPath id="frame"><rect x="3" y="3" width="1386" height="424" rx="34"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <g transform="translate(0,30)">
+    <rect y="-30" width="1392" height="430" fill="url(#sky)"/>
+    <!-- 太陽と雲 -->
+    <circle cx="1335" cy="22" r="34" fill="#f9dc7a" opacity="0.75"/>
+    <g fill="#ffffff" opacity="0.85">
+      <circle cx="1080" cy="60" r="26"/><circle cx="1110" cy="50" r="32"/><circle cx="1145" cy="62" r="24"/>
+      <circle cx="760" cy="46" r="18"/><circle cx="784" cy="40" r="23"/><circle cx="808" cy="48" r="17"/>
+    </g>
+    <!-- 丘 -->
+    <path d="M0 300 Q300 230 620 285 T1392 250 V400 H0Z" fill="#cfe6b0" opacity="0.9"/>
+    <path d="M700 290 Q1000 200 1392 230 V400 H700Z" fill="#b9dc92" opacity="0.8"/>
+    <!-- 赤い納屋（右奥） -->
+    <g opacity="0.7">
+      <path d="M1150 222 L1205 186 L1260 222Z" fill="#a8483c"/>
+      <rect x="1160" y="220" width="90" height="56" fill="#cf6a5a"/>
+      <rect x="1190" y="240" width="30" height="36" fill="#f3e6c8"/>
+    </g>
+    <!-- 畝（はたけの列） -->
+    <path d="M0 350 Q696 300 1392 330 V400 H0Z" fill="#d8b287" opacity="0.85"/>
+    <g stroke="#b88c5c" stroke-width="5" fill="none" opacity="0.7">
+      <path d="M0 368 Q696 322 1392 350"/>
+      <path d="M0 388 Q696 344 1392 372"/>
+    </g>
+    <!-- 芽 -->
+    <g fill="#8cc56a" opacity="0.8">
+      <g id="s"><path d="M0 0 q-14 -4 -16 -18 q14 2 16 18Z"/><path d="M0 0 q12 -6 18 -20 q-14 0 -18 20Z"/></g>
+      <use href="#s" x="120" y="352"/><use href="#s" x="300" y="342"/><use href="#s" x="480" y="336"/>
+      <use href="#s" x="660" y="334"/><use href="#s" x="840" y="334"/><use href="#s" x="1020" y="338"/>
+      <use href="#s" x="1200" y="344"/><use href="#s" x="1340" y="350"/>
+    </g>
+    <!-- 木の柵（右） -->
+    <g fill="#c49a6c" opacity="0.6">
+      <rect x="880" y="262" width="12" height="46" rx="4"/><rect x="960" y="256" width="12" height="46" rx="4"/>
+      <rect x="1040" y="252" width="12" height="46" rx="4"/><rect x="1120" y="252" width="12" height="46" rx="4"/>
+      <rect x="870" y="272" width="270" height="8" rx="4"/><rect x="870" y="290" width="270" height="8" rx="4"/>
+    </g>
+    <!-- 麦（右端） -->
+    <g stroke="#d1a843" stroke-width="4" fill="#e6c15a" opacity="0.65">
+      <path d="M1320 330 Q1322 280 1316 250"/><ellipse cx="1314" cy="246" rx="8" ry="16"/>
+      <path d="M1350 334 Q1350 290 1356 262"/><ellipse cx="1357" cy="258" rx="8" ry="16"/>
+    </g>
+    </g>
+  </g>
+  <rect x="3" y="3" width="1386" height="424" rx="34" fill="none" stroke="#b9d39a" stroke-width="6"/>
+</svg>

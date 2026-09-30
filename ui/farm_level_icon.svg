@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- 農業レベルのアイコン：土から芽吹く双葉＋麦の穂＋じょうろのしずく -->
+  <circle cx="64" cy="64" r="60" fill="#fff6dc" stroke="#8b5e3c" stroke-width="6"/>
+  <circle cx="64" cy="64" r="51" fill="none" stroke="#e9c46a" stroke-width="3" stroke-dasharray="6 6"/>
+  <clipPath id="c"><circle cx="64" cy="64" r="50"/></clipPath>
+  <g clip-path="url(#c)">
+    <rect x="0" y="0" width="128" height="128" fill="#dff0f7"/>
+    <ellipse cx="64" cy="112" rx="70" ry="34" fill="#9a6b43"/>
+    <path d="M10 98 Q64 82 118 98" stroke="#7a522f" stroke-width="3" fill="none"/>
+    <path d="M14 110 Q64 94 114 110" stroke="#7a522f" stroke-width="3" fill="none"/>
+  </g>
+  <!-- 麦の穂 -->
+  <path d="M96 92 Q98 60 92 34" stroke="#c99a2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <g fill="#e6c15a" stroke="#c99a2e" stroke-width="1.5">
+    <ellipse cx="88" cy="44" rx="4.5" ry="8" transform="rotate(-25 88 44)"/>
+    <ellipse cx="98" cy="46" rx="4.5" ry="8" transform="rotate(25 98 46)"/>
+    <ellipse cx="89" cy="57" rx="4.5" ry="8" transform="rotate(-25 89 57)"/>
+    <ellipse cx="99" cy="59" rx="4.5" ry="8" transform="rotate(25 99 59)"/>
+    <ellipse cx="92" cy="33" rx="4" ry="7"/>
+  </g>
+  <!-- 双葉 -->
+  <path d="M56 92 Q55 70 58 56" stroke="#4f8a2f" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M58 60 Q34 58 30 38 Q52 36 58 60Z" fill="#7cc04f" stroke="#4f8a2f" stroke-width="2.5"/>
+  <path d="M58 58 Q70 34 90 36 Q86 58 58 58Z" fill="#8fd05e" stroke="#4f8a2f" stroke-width="2.5"/>
+  <path d="M36 42 Q48 48 57 58" stroke="#4f8a2f" stroke-width="1.5" fill="none"/>
+  <!-- しずく -->
+  <path d="M30 70 q-6 9 0 12 q6 -3 0 -12Z" fill="#6fb7e8"/>
+  <path d="M20 58 q-4 6 0 8 q4 -2 0 -8Z" fill="#6fb7e8"/>
+  <!-- きらり -->
+  <path d="M104 22 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3Z" fill="#ffd84a"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <circle cx="48" cy="48" r="45" fill="#fff6dc" stroke="#e7d3ad" stroke-width="3"/>
+
+  <!-- たね袋 -->
+  <path d="M26 34 L70 34 L74 80 Q74 84 70 84 L26 84 Q22 84 22 80Z" fill="#d9b27c" stroke="#8b5e3c" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M24 34 L28 22 L68 22 L72 34Z" fill="#c69a60" stroke="#8b5e3c" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M30 28 H66" stroke="#8b5e3c" stroke-width="2" stroke-dasharray="4 3"/>
+  <rect x="30" y="42" width="36" height="30" rx="6" fill="#fff8e8" stroke="#b5835a" stroke-width="2"/>
+  <path d="M48 66 Q47 56 49 50" stroke="#3f7a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M49 54 Q38 54 36 46 Q46 45 49 54Z" fill="#6fae52" stroke="#3f7a2a" stroke-width="1.8"/>
+  <path d="M49 52 Q54 42 62 44 Q60 53 49 52Z" fill="#8fd05e" stroke="#3f7a2a" stroke-width="1.8"/>
+  <path d="M40 67 H56" stroke="#8b5e3c" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- こぼれたたね -->
+  <g fill="#a0703f" stroke="#6b4428" stroke-width="1.2">
+    <ellipse cx="78" cy="78" rx="3" ry="4.5" transform="rotate(30 78 78)"/><ellipse cx="84" cy="70" rx="2.6" ry="4" transform="rotate(-20 84 70)"/><ellipse cx="80" cy="62" rx="2.4" ry="3.6" transform="rotate(10 80 62)"/>
+  </g>
+</svg>
