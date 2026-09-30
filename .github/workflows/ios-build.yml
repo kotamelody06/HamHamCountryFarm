@@ -12,14 +12,11 @@ jobs:
 
       - name: Setup Godot & Templates
         run: |
-          # 💡お使いのGodotのバージョンに合わせて変更してください（例: 4.3 , 4.4 など）
           GDVERSION="4.5"
           
-          # 1. Godotエディタ（Mac版）のダウンロードと配置
           curl -LO https://github.com{GDVERSION}-stable/Godot_v${GDVERSION}-stable_macos.universal.zip
           unzip Godot_v${GDVERSION}-stable_macos.universal.zip
           
-          # 2. エクスポートテンプレートのダウンロードと配置
           mkdir -p ~/Library/Application\ Support/Godot/templates/${GDVERSION}.stable
           curl -LO https://github.com{GDVERSION}-stable/Godot_v${GDVERSION}-stable_export_templates.tpz
           unzip Godot_v${GDVERSION}-stable_export_templates.tpz
@@ -28,17 +25,14 @@ jobs:
       - name: Export Xcode Project
         run: |
           mkdir -p build/ios
-          # HeadlessモードでGodotを起動し、iOSプロジェクトを書き出す
           ./Godot.app/Contents/MacOS/Godot --headless --path . --export-release "iOS" build/ios/project.xcodeproj
 
       - name: Build Unsigned IPA via Xcode
         run: |
           cd build/ios
           
-          # 💡重要：お使いのGodotの「プロジェクト名」に書き換えてください（スペースや記号に注意）
           TARGET_NAME="HamHamCountryFarm"
           
-          # Xcodeビルド（署名を意図的にスキップしてコンパイルする）
           xcodebuild -project project.xcodeproj \
             -scheme "$TARGET_NAME" \
             -configuration Release \
@@ -47,7 +41,6 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             clean build
           
-          # 未署名バイナリをiOSが認識できる .ipa 形式にパッケージングする
           mkdir -p Payload
           mv build/Release-iphoneos/*.app Payload/
           zip -r ../../game-unsigned.ipa Payload
