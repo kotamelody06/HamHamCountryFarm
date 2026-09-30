@@ -1,0 +1,75 @@
+name: iOS Unsigned Build
+
+on:
+  workflow_dispatch:
+
+env:
+  GODOT_VERSION: "4.5"
+  # Xcodeプロジェクト名 = xcodebuild のスキーム名になる（英数字のみ推奨）
+  EXPORT_NAME: "HamHamCountryFarm"
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      # 1. Godot本体とエクスポートテンプレートを取得（curl は macOS 標準搭載）
+      - name: Download Godot & Templates
+        run: |
+          BASE="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable"
+          curl -fL --retry 3 -o godot.zip     "$BASE/Godot_v${GODOT_VERSION}-stable_macos.universal.zip"
+          curl -fL --retry 3 -o templates.zip "$BASE/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+          ls -lh godot.zip templates.zip
+          # zip として壊れていたらここで止める
+          unzip -tq godot.zip
+          unzip -tq templates.zip
+
+      # 2. 解凍して正しい場所に配置（Godot 4 は "export_templates" フォルダ）
+      - name: Extract and Setup
+        run: |
+          unzip -q godot.zip
+          unzip -q templates.zip
+          TPL_DIR="$HOME/Library/Application Support/Godot/export_templates/${GODOT_VERSION}.stable"
+          mkdir -p "$TPL_DIR"
+          mv templates/* "$TPL_DIR/"
+          ls "$TPL_DIR" | grep -i ios
+
+      # 3. リソースのインポート → Xcodeプロジェクトの書き出し
+      - name: Export Xcode Project
+        run: |
+          GODOT=./Godot.app/Contents/MacOS/Godot
+          # 初回インポート（.godot/ がリポジトリに無いため）
+          $GODOT --headless --editor --quit --path . || true
+          mkdir -p build/ios
+          # 出力ファイル名のベース名が Xcode プロジェクト名・スキーム名になる
+          $GODOT --headless --path . --export-release "iOS" "build/ios/${EXPORT_NAME}.ipa"
+          ls -la build/ios
+
+      # 4. 未署名でビルドして IPA に固める
+      - name: Build Unsigned IPA via Xcode
+        run: |
+          cd build/ios
+          xcodebuild -project "${EXPORT_NAME}.xcodeproj" \
+            -scheme "${EXPORT_NAME}" \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination "generic/platform=iOS" \
+            -derivedDataPath DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            clean build
+
+          rm -rf Payload && mkdir Payload
+          cp -R DerivedData/Build/Products/Release-iphoneos/*.app Payload/
+          zip -qry "$GITHUB_WORKSPACE/game-unsigned.ipa" Payload
+
+      # 5. 成果物をアップロード
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-unsigned-ipa
+          path: game-unsigned.ipa
+          retention-days: 7
