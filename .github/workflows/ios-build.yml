@@ -45,7 +45,6 @@ jobs:
         run: |
           cd build/ios
           
-          # 💡【重要】お使いのGodotの「プロジェクト名」に必ず書き換えてください！
           TARGET_NAME="HamHamCountryFarm"
           
           xcodebuild -project project.xcodeproj \
