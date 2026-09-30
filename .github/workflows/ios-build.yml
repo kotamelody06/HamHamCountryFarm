@@ -12,14 +12,17 @@ jobs:
 
       - name: Setup Godot & Templates
         run: |
-          GDVERSION="4.3"
+          # 💡お使いのGodotのバージョン（4.3, 4.4 など）
+          GDVERSION="4.5"
           
-          curl -LO https://github.com{GDVERSION}-stable/Godot_v${GDVERSION}-stable_macos.universal.zip
-          unzip Godot_v${GDVERSION}-stable_macos.universal.zip
+          # 1. Godotエディタ（Mac版）のダウンロードと配置
+          curl -LO "https://github.com{GDVERSION}-stable/Godot_v${GDVERSION}-stable_macos.universal.zip"
+          unzip "Godot_v${GDVERSION}-stable_macos.universal.zip"
           
+          # 2. エクスポートテンプレートのダウンロードと配置
           mkdir -p ~/Library/Application\ Support/Godot/templates/${GDVERSION}.stable
-          curl -LO https://github.com{GDVERSION}-stable/Godot_v${GDVERSION}-stable_export_templates.tpz
-          unzip Godot_v${GDVERSION}-stable_export_templates.tpz
+          curl -LO "https://github.com{GDVERSION}-stable/Godot_v${GDVERSION}-stable_export_templates.tpz"
+          unzip "Godot_v${GDVERSION}-stable_export_templates.tpz"
           mv templates/* ~/Library/Application\ Support/Godot/templates/${GDVERSION}.stable/
 
       - name: Export Xcode Project
