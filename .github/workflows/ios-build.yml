@@ -12,7 +12,7 @@ jobs:
 
       - name: Setup Godot & Templates
         run: |
-          GDVERSION="4.5"
+          GDVERSION="4.3"
           
           curl -LO https://github.com{GDVERSION}-stable/Godot_v${GDVERSION}-stable_macos.universal.zip
           unzip Godot_v${GDVERSION}-stable_macos.universal.zip
