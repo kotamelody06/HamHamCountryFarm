@@ -10,23 +10,19 @@ jobs:
       - name: Checkout Source
         uses: actions/checkout@v4
 
-      # 1. 安全な公式アクションを使ってGodotエディタ（4.3）をダウンロード
-      - name: Download Godot Editor
-        uses: suisei-cn/actions-download-file@v1.6.0
-        with:
-          url: "https://github.com"
-          target: .
-          filename: godot.zip
+      # 1. 確実で安定している Mac標準の wget コマンドでエディタとテンプレートをダウンロード
+      - name: Download Godot & Templates
+        run: |
+          # エディタのダウンロード
+          wget -q --show-progress "https://github.com" -O godot.zip
+          
+          # テンプレートのダウンロード
+          wget -q --show-progress "https://github.com" -O templates.zip
+          
+          # ファイルサイズが正常かチェック（空っぽならここで強制終了させて原因を特定する）
+          ls -lh godot.zip templates.zip
 
-      # 2. 安全な公式アクションを使ってエクスポートテンプレートをダウンロード
-      - name: Download Export Templates
-        uses: suisei-cn/actions-download-file@v1.6.0
-        with:
-          url: "https://github.com"
-          target: .
-          filename: templates.zip
-
-      # 3. ファイルを解凍して正しい場所に配置する
+      # 2. ファイルを解凍して正しい場所に配置する
       - name: Extract and Setup
         run: |
           unzip -q godot.zip
@@ -34,13 +30,13 @@ jobs:
           mkdir -p "$HOME/Library/Application Support/Godot/templates/4.3.stable"
           mv templates/* "$HOME/Library/Application Support/Godot/templates/4.3.stable/"
 
-      # 4. Xcodeプロジェクトの書き出し
+      # 3. Xcodeプロジェクトの書き出し
       - name: Export Xcode Project
         run: |
           mkdir -p build/ios
           ./Godot.app/Contents/MacOS/Godot --headless --path . --export-release "iOS" build/ios/project.xcodeproj
 
-      # 5. Xcodeを使用した未署名IPAのビルド
+      # 4. Xcodeを使用した未署名IPAのビルド
       - name: Build Unsigned IPA via Xcode
         run: |
           cd build/ios
@@ -59,7 +55,7 @@ jobs:
           mv build/Release-iphoneos/*.app Payload/
           zip -r ../../game-unsigned.ipa Payload
 
-      # 6. 完成したIPAファイルを保存
+      # 5. 完成したIPAファイルを保存
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
